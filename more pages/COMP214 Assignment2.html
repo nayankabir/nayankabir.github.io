@@ -3,62 +3,89 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-<!--CSS Link-->
-<link href="../css/Assignment2.css" rel="stylesheet" type="text/css">
-<!------------>
+    <meta charset="utf-8">
+    <title>Untitled Document</title>
+    <!--CSS Link-->
+    <link href="../css/Assignment2.css" rel="stylesheet" type="text/css">
+    <!------------>
 </head>
 <body>
-<div id="container">
-   <div id="header"><img src="../img/toshiba-banner.jpg" alt="" width="800" height="180"/>
-<p id="date"></p> <p id="time"></p>
-<img src="../img/toshiba-2_1.jpg" width="500" alt="" align="left"/>
-   <div id="body"><pside>Toshiba Encore 2 Write (WT10PE-A264)
-   <p> The Toshiba Encore 2 Write weighs less than most tablets while giving Windows users enough storage and power to work on documents, surfing the Internet and viewing video online. Most of these low-end Windows tablets only hold 32GB of content and less when we factor in the operating system and pre-installed software eating up a lot of that. Toshiba doubles the storage. It offers decent battery life and a great active stylus. The screen is bright. The build looks good and feels solid for a plastic housing. One free year of Microsoft Office 365 Personal and Unlimited OneDrive included saves buyers $70, which makes this a better deal. There’s very little other software. Toshiba’s bundled note taking, recording and video/image capture software is good enough to make me want it on other tablets and phones.</p>
-   <br></div>
-   <div id="footer"><p>Your favorite brand is:</p>
-   <p>[element][element]</p>
-   
-   <p> Copyright 2015 Centennial College - Student Name: Ahsanul Kabir - Student#: 300828740 All rights reserved</p>
-   </div>
-</div>
-</pside>
-</div>
-<!--JavaScript Code-->
-<!------------------->
+    <div id="container">
+        <div id="header">
+            <img src="../img/toshiba-banner.jpg" alt="" width="800" height="180" />
+            <p id="date"></p>
+            <p id="time"></p>
+            <img src="../img/toshiba-2_1.jpg" width="500" alt="" align="left" />
+            <div id="body">
+                <pside>
+                Toshiba Encore 2 Write (WT10PE-A264)
+		        <p>The Toshiba Encore 2 Write weighs less than most tablets while giving Windows users enough storage and power to work on documents, surfing the Internet and viewing video online. Most of these low-end Windows tablets only hold 32GB of content and less when we factor in the operating system and pre-installed software eating up a lot of that. Toshiba doubles the storage. It offers decent battery life and a great active stylus. The screen is bright. The build looks good and feels solid for a plastic housing. One free year of Microsoft Office 365 Personal and Unlimited OneDrive included saves buyers $70, which makes this a better deal. There’s very little other software. Toshiba’s bundled note taking, recording and video/image capture software is good enough to make me want it on other tablets and phones.</p>
+                <br>
+            </div>
+            <button onclick="brandPromptBox()">Click me! </button>
+            <p id="promptResult"></p>
+            <div id="footer">
+                <p>Your favorite brand is:</p>
+                <p>[element][element]</p>
 
+                <p>Copyright 2015 Centennial College - Student Name: Ahsanul Kabir - Student#: 300828740 All rights reserved</p>
+            </div>
+        </div>
+        </pside>
+    </div>
+    <!--JavaScript Code-->
+    <!------------------->
 
-        <script type="text/javascript" language="JavaScript">
-            var now = new Date();
+    <script type="text/javascript" language="JavaScript">
+        //[Current Date] Script
+        var now = new Date();
 
-            var monthList = new Array ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-            
-            function calculateDayEnd(n)
-            {
-                var dayEnding = "th";
+        var monthList = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
-                if (n == 1 || n == 21 || n == 31) dayEnding = "st";
-                if (n == 2 || n == 22) dayEnding = "nd";
-                if (n == 3 || n == 23) dayEnding = "rd"
-                
-                return n + dayEnding;
+        function calculateDayEnd(n) {
+            var dayEnding = "th";
+
+            if (n == 1 || n == 21 || n == 31) dayEnding = "st";
+            if (n == 2 || n == 22) dayEnding = "nd";
+            if (n == 3 || n == 23) dayEnding = "rd";
+            return n + dayEnding;
+        }
+        document.getElementById("date").innerHTML = "Current Date: " + monthList[now.getMonth()] + " " + calculateDayEnd(now.getDate()) + ", " + now.getFullYear();
+
+        //[Current Time] Script
+        //
+        function calculateTime(x) {
+            var timeLiteral = x;
+            var timeBegins;
+
+            if (x >= 1 && x <= 9) {
+                timeBegins = "0";
+                return timeBegins + timeLiteral;
+            } else return timeLiteral;
+
+        }
+
+        document.getElementById("time").innerHTML = "Current Time: " + calculateTime(now.getHours()) + ":" + calculateTime(now.getMinutes()) + ":" + calculateTime(now.getSeconds());
+
+        //[Favorite Brand Popup] Script
+        //
+
+        function brandPromptBox() {
+            var answer1 = prompt("What is your favorite brand of tablet products?", "none");
+            var answer2 = prompt("On a scale of 1 to 100, how much do you like it?", "80");
+
+            if (answer1 == null) {
+                document.getElementById("promptResult").innerHTML =
+                "Please enter something";
             }
-            document.getElementById("date").innerHTML = "Current Date: " + monthList[now.getMonth()] + " " + calculateDayEnd(now.getDate()) + ", " + now.getFullYear();
-			
-function calculateTime(t)
-{
-  var timeLiteral = x;
-  var timeBegins ="";
-
-  if(AND(t => 0,t =<9)) timeBegins = "0"
-
-  return timeBegins + timeLiteral;
-}
-
-		document.getElementById("time").innerHTML = "Current Time: " + calculateTime[now.getHours()] + ":" + calculateTime[now.getMinutes()] + ":" + calculateTime[now.getSeconds()];
-
-        </script>
-<!------------>
+            if (answer2 == null) {
+                document.getElementById("promptResult").innerHTML =
+                "Please enter something";
+            } else {
+                document.getElementById("promptResult").innerHTML = "Good job";
+            }
+        }
+    </script>
+    <!------------>
 </body>
 </html>
