@@ -22,11 +22,21 @@
 		        <p>The Toshiba Encore 2 Write weighs less than most tablets while giving Windows users enough storage and power to work on documents, surfing the Internet and viewing video online. Most of these low-end Windows tablets only hold 32GB of content and less when we factor in the operating system and pre-installed software eating up a lot of that. Toshiba doubles the storage. It offers decent battery life and a great active stylus. The screen is bright. The build looks good and feels solid for a plastic housing. One free year of Microsoft Office 365 Personal and Unlimited OneDrive included saves buyers $70, which makes this a better deal. There’s very little other software. Toshiba’s bundled note taking, recording and video/image capture software is good enough to make me want it on other tablets and phones.</p>
                 <br>
             </div>
-            <button onclick="brandPromptBox()">Click me! </button>
-            <p id="promptResult"></p>
+            <select id="quantitySelection">
+                <option>Qty</option>
+                <option>Qty2</option>
+            </select>
+            <select id="sizeSelection">
+                <option>Size</option>
+                <option>Size2</option>
+            </select>
+            <button onclick="brandPromptBox()">Add to Cart </button>
+            <p>
+                <br />
+            </p>
+            <p>Your favorite brand is:</p>
+            <p id="promptResult">Result</p>
             <div id="footer">
-                <p>Your favorite brand is:</p>
-                <p>[element][element]</p>
 
                 <p>Copyright 2015 Centennial College - Student Name: Ahsanul Kabir - Student#: 300828740 All rights reserved</p>
             </div>
@@ -82,7 +92,7 @@
                 document.getElementById("promptResult").innerHTML =
                 "Please enter something";
             } else {
-                document.getElementById("promptResult").innerHTML = "Good job";
+                document.getElementById("promptResult").innerHTML = answer1.repeat(answer2);
             }
         }
     </script>
