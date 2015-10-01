@@ -47,6 +47,8 @@
     <button>Clear Form</button>
 </body>
 </html>
+
+<!-- -------- -->
 <!-- CSS Code -->
 
 <style type="text/css">
@@ -81,3 +83,21 @@
 		clear: left;
 	}
 </style>
+
+<!-- --------------- -->
+<!-- JavaScript Code -->
+
+<script></<script type="text/javascript">
+
+//Fields cannot be left blank
+function validateForm()
+{
+  var x = document.forms.value;
+  if (x == null || x == "")
+  {
+    alert("Form must be filled out");
+    return false;
+  }
+}
+
+</script>
