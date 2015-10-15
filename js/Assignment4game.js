@@ -11,7 +11,7 @@ var bgImage = new Image();
 bgImage.onload = function () {
 	bgReady = true;
 };
-bgImage.src = "../images/background.png";
+bgImage.src = "../img/leafbg.jpg";
 
 // Hero image
 var heroReady = false;
@@ -19,13 +19,13 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "../images/hero.png";
+heroImage.src = "../img/ladybug2.png";
 
 // Monster image
 var monsterReady = false;
 var monsterImage = new Image();
 monsterImage.onload = function () {
-	monsterReady = true;
+	monsterReady = false;
 };
 monsterImage.src = "../images/monster.png";
 
@@ -72,16 +72,6 @@ var update = function (modifier) {
 		hero.x += hero.speed * modifier;
 	}
 
-	// Are they touching?
-	if (
-		hero.x <= (monster.x + 32)
-		&& monster.x <= (hero.x + 32)
-		&& hero.y <= (monster.y + 32)
-		&& monster.y <= (hero.y + 32)
-	) {
-		++monstersCaught;
-		reset();
-	}
 };
 
 // Draw everything
@@ -94,16 +84,13 @@ var render = function () {
 		ctx.drawImage(heroImage, hero.x, hero.y);
 	}
 
-	if (monsterReady) {
-		ctx.drawImage(monsterImage, monster.x, monster.y);
-	}
 
 	// Score
 	ctx.fillStyle = "rgb(250, 250, 250)";
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Goblins caught: " + monstersCaught, 32, 32);
+	ctx.fillText("Score: " + monstersCaught, 32, 32);
 };
 
 // The main game loop
