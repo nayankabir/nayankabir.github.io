@@ -17,7 +17,7 @@ bgImage.src = "../img/leafbg.jpg";
 var heroReady = false;
 var heroImage = new Image();
 heroImage.onload = function () {
-	heroReady = true;
+	heroReady = false;
 };
 heroImage.src = "../img/ladybug2.png";
 
@@ -85,12 +85,13 @@ var render = function () {
 	}
 
 
-	// Score
+		var bugCaught = 0;	
+				// Score
 	ctx.fillStyle = "rgb(250, 250, 250)";
 	ctx.font = "24px Helvetica";
 	ctx.textAlign = "left";
 	ctx.textBaseline = "top";
-	ctx.fillText("Score: " + monstersCaught, 32, 32);
+	ctx.fillText("Score: " + bugCaught, 32, 32);
 };
 
 // The main game loop
