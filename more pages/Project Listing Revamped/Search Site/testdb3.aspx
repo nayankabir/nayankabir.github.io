@@ -10,20 +10,36 @@
 <body>
 
 <form id="form1" runat="server">
-	<asp:AccessDataSource id="AccessDataSource1" runat="server" DataFile="Test Database 1.mdb" SelectCommand="SELECT * FROM [Master Project Listing] WHERE (([PV Code ] LIKE '%' + ? + '%') OR ([PV Code ] IS NULL)) AND (([IT Delivery AVP ] LIKE '%' + ? + '%') OR ([IT Delivery AVP ] IS NULL)) AND (([IT Delivery VP ] LIKE '%' + ? + '%') OR ([IT Delivery VP ] IS NULL))">
+	<asp:AccessDataSource id="AccessDataSource1" runat="server" DataFile="Test Database 1.mdb" SelectCommand="SELECT * FROM [Master Project Listing] 
+WHERE (([PV Code ] LIKE '%' + ? + '%') OR ([PV Code ] IS NULL)) 
+AND (([IT Delivery AVP ] LIKE '%' + ? + '%') OR ([IT Delivery AVP ] IS NULL)) 
+AND (([IT Delivery VP ] LIKE '%' + ? + '%') OR ([IT Delivery VP ] IS NULL)) 
+AND (([Actuals (YTD) ]&lt;=?))
+AND (([Forecast (BOY) ]&gt;=?))">
 		<SelectParameters>
 			<asp:ControlParameter ControlID="MPLSearchBox" Name="PV_Code_" PropertyName="Text" Type="String" ConvertEmptyStringToNull="False" />
 			<asp:ControlParameter ControlID="MPLSearchBoxAVP" ConvertEmptyStringToNull="False" Name="IT_Delivery_AVP_" PropertyName="Text" />
 			<asp:ControlParameter ControlID="MPLSearchBoxVP" Name="IT_Delivery_VP_" PropertyName="Text" ConvertEmptyStringToNull="False" />
+			<asp:ControlParameter ControlID="MPLSearchBoxActuals" DefaultValue="99999999999" Name="Actuals_(YTD)_" PropertyName="Text" Type="Decimal" />
+			<asp:ControlParameter ControlID="MPLSearchBoxForecast" DefaultValue="-99999999" Name="Forecast_(BOY)_" PropertyName="Text" Type="Decimal" />
 		</SelectParameters>
 	</asp:AccessDataSource>
-	<asp:TextBox id="MPLSearchBox" runat="server">Planview Code</asp:TextBox>
+	<asp:Label id="Label1" runat="server" BorderStyle="Ridge" Text="Project Code"></asp:Label>
+	<asp:TextBox id="MPLSearchBox" runat="server"></asp:TextBox>
 	<asp:Button id="MPLSearchButton" runat="server" Text="Search" />
 	<br />
-	<asp:TextBox id="MPLSearchBoxAVP" runat="server">AVP</asp:TextBox>
+	<asp:Label id="Label2" runat="server" BorderStyle="Ridge" Text="AVP"></asp:Label>
+	<asp:TextBox id="MPLSearchBoxAVP" runat="server"></asp:TextBox>
 	<br />
-	<asp:TextBox id="MPLSearchBoxVP" runat="server">VP</asp:TextBox>
-	<asp:GridView id="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataSourceID="AccessDataSource1" BackColor="#F0F0F0">
+	<asp:Label id="Label3" runat="server" BorderStyle="Ridge" Text="VP"></asp:Label>
+	<asp:TextBox id="MPLSearchBoxVP" runat="server"></asp:TextBox>
+	<br />
+	<asp:Label id="Label4" runat="server" BorderStyle="Ridge" Text="Actuals (Enter Maximum)"></asp:Label>
+	<asp:TextBox id="MPLSearchBoxActuals" runat="server"></asp:TextBox>
+	<br />
+	<asp:Label id="Label5" runat="server" BorderStyle="Ridge" Text="Forecast (Enter Minimum)"></asp:Label>
+	<asp:TextBox id="MPLSearchBoxForecast" runat="server"></asp:TextBox>
+	<asp:GridView id="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="#F0F0F0" DataSourceID="AccessDataSource1">
 		<AlternatingRowStyle BackColor="White" />
 		<Columns>
 			<asp:BoundField DataField="PV Code " HeaderText="PV Code " SortExpression="PV Code ">

@@ -12,14 +12,14 @@ ${demo.css}
 $(function () {
     $('#container').highcharts({
         title: {
-            text: 'Combination chart'
+            text: 'Monthly Project Costs by Cost Type'
         },
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
+            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         },
         labels: {
             items: [{
-                html: 'Total fruit consumption',
+                html: 'Project Cost ($ in Millions)',
                 style: {
                     left: '50px',
                     top: '18px',
@@ -29,46 +29,32 @@ $(function () {
         },
         series: [{
             type: 'column',
-            name: 'Jane',
-            data: [3, 2, 1, 3, 4]
+            name: 'Labour',
+            data: [5.2, 4.4, 6.1, 10, 5.3, 6.9, 6.3, 7.4, 6.1, 7.6, 6.9, 5.5]
         }, {
             type: 'column',
-            name: 'John',
-            data: [2, 3, 5, 7, 6]
+            name: 'Consultants',
+            data: [11.1, 7.3, 10, 12.3, 8.4, 10.9, 8.9, 13.2, 10, 11.1, 9.2, 7.3]
         }, {
             type: 'column',
-            name: 'Joe',
-            data: [4, 3, 3, 9, 0]
+            name: 'Hard Capital',
+            data: [1.4, 2.6, 2.6, 2.1, 1.8, 4.2, 1, 2.8, 3.7, 3, 4.8, 3]
         }, {
+            type: 'column',
+            name: 'IS Costs',
+            data: [1.7, 0.6, 2, 0.3, 1.4, 0.7, 1.1, 1.2, -0.2, 1.2, 1.3, 2.6]
+        },	{
+            type: 'column',
+            name: 'Other',
+            data: [0.3, 0.4, 0.7, -0.1, -0.1, 0.4, 0.1, 0.1, 0.5, 0.1, 0.1, 0.4]
+        },{
             type: 'spline',
-            name: 'Average',
-            data: [3, 2.67, 3, 6.33, 3.33],
+            name: 'Average Run Rate',
+            data: [3.96, 3.06, 4.28, 4.9, 3.34, 4.62, 3.46, 4.94, 4.02, 4.62, 4.44, 3.78],
             marker: {
                 lineWidth: 2,
                 lineColor: Highcharts.getOptions().colors[3],
                 fillColor: 'white'
-            }
-        }, {
-            type: 'pie',
-            name: 'Total consumption',
-            data: [{
-                name: 'Jane',
-                y: 13,
-                color: Highcharts.getOptions().colors[0] // Jane's color
-            }, {
-                name: 'John',
-                y: 23,
-                color: Highcharts.getOptions().colors[1] // John's color
-            }, {
-                name: 'Joe',
-                y: 19,
-                color: Highcharts.getOptions().colors[2] // Joe's color
-            }],
-            center: [100, 80],
-            size: 100,
-            showInLegend: false,
-            dataLabels: {
-                enabled: false
             }
         }]
     });
