@@ -80,7 +80,7 @@ const HEROES: Hero[] = [
   `]
 })
 export class AppComponent {
-  title = 'Cognos Report Navigation';
+  title = 'Tour of Heroes';
   heroes = HEROES;
   selectedHero: Hero;
 
