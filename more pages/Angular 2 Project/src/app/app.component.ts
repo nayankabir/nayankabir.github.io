@@ -18,7 +18,7 @@ const HEROES: Hero[] = [
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <h2>IT Financial Analytics</h2>
+    <h2>IT AVP/VP Listing</h2>
     <ul class="heroes">
       <li *ngFor="let hero of heroes"
         [class.selected]="hero === selectedHero"
@@ -30,7 +30,7 @@ const HEROES: Hero[] = [
   `,
   styles: [`
     .selected {
-      background-color: #CFD8DC !important;
+      background-color: Orange !important;
       color: white;
     }
     .heroes {
