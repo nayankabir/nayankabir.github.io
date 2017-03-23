@@ -6,9 +6,9 @@ export class Hero {
 
 export class Address {
   street = '';
-  city   = '';
-  state  = '';
-  zip    = '';
+  city = '';
+  state = '';
+  zip = '';
 }
 
 export const heroes: Hero[] = [
@@ -16,15 +16,14 @@ export const heroes: Hero[] = [
     id: 1,
     name: 'Retail Net Sales (Daily Report)',
     addresses: [
-      {street: '123 Main',  city: 'Anywhere', state: 'CA',  zip: '94801'},
-      {street: '456 Maple', city: 'Somewhere', state: 'VA', zip: '23226'},
+      {street: '123 Main',  city: 'Anywhere', state: '', zip:''}
     ]
   },
   {
     id: 2,
     name: 'Shipments (Daily Report)',
     addresses: [
-      {street: '789 Elm',  city: 'Smallville', state: 'OH',  zip: '04501'},
+      {street: '123 Main',  city: 'Anywhere', state: '', zip:''}
     ]
   },
   {
