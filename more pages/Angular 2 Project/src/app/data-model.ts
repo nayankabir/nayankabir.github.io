@@ -14,9 +14,9 @@ export class Address {
 export const heroes: Hero[] = [
   {
     id: 1,
-    name: 'Retail Net Sales (Daily Report)',
+    name: 'SKU Performance Report (EDW Version)',
     addresses: [
-      {street: '123 Main',  city: 'Anywhere', state: '', zip:''}
+      {street: 'The report provides visibility to a variety of product specific financial metrics, such as landed cost, price, sales, corporate and retail inventory units, defective rates, etc. It allows for easy identification of top/bottom SKUs for the metrics in the stated time period.',  city: 'Sean Stokes, Category Management & Integrated Planning', state: 'Call Decision Support (ext. 3444) for assistance.', zip:' Report requires that your workstation be connected to the EDW. See NetLaunch bulletin page for details.'}
     ]
   },
   {
